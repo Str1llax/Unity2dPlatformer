@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public float cameraFollowSpeed;
+    public Transform playerPosition;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        transform.position = Vector2.MoveTowards(transform.position, playerPosition.position, cameraFollowSpeed * Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 }
