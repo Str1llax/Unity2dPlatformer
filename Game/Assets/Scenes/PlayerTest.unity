@@ -1618,6 +1618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b3788bdadb6f04fbc610e4adac7e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
+  _animator: {fileID: 1933462761}
   enemyHealth: 10
   enemySpeed: 3
   enemyViewRange: 4
@@ -1638,7 +1639,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1648,8 +1649,8 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!61 &1933462758
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [SerializeField] private Animator _animator;
+
     public int enemyHealth;
     public int enemySpeed;
     public int enemyViewRange;
@@ -31,14 +33,17 @@ public class EnemyMovement : MonoBehaviour
         if (Vector2.Distance(transform.position, targetToFollow.transform.position) == attackRange)
         {
            AttackPlayer();
+            _animator.SetBool("isPlayerClose", true);
         }
         else if (Vector2.Distance(transform.position, targetToFollow.transform.position) < enemyViewRange)//follow
         {
             transform.position = Vector2.MoveTowards(transform.position, targetToFollow.transform.position, enemySpeed * Time.deltaTime);
+            _animator.SetBool("isPlayerClose", true);
         }
         else
         {
              rb.linearVelocity = Vector2.zero;
+            _animator.SetBool("isPlayerClose", false);
         }
      }      
 }
