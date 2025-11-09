@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -12,47 +12,33 @@ public class EnemyMovement : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    void Start()
+    public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         targetToFollow = GameObject.FindWithTag("Player");
     }
 
-    void Update()
-    {
-            float distanceToPlayer = Vector2.Distance(transform.position, targetToFollow);
-            if (distanceToPlayer <= attackRange)
-            {
-                AttackPlayer();
-            }
-            else if (distanceToPlayer < enemyViewRange && distanceToPlayer < attackRange)
-            {
-                Follow();
-            }
-            else
-            {
-                rb.linearVelocity = Vector2.zero;
-            }
-        }
-    }
-
     public void DamageToEnemy()
     {
-        if(enemyHealth <= 0)
+        if (enemyHealth <= 0)
         {
             //Destroy(GameObject);
         }
     }
-    void AttackPlayer()
+    public void AttackPlayer(){}
+    public void Update()
     {
-
-    }
-    void Follow()
-    {
-        if (Vector2.Distance(transform.position, targetToFollow.transform.position) < enemyViewRange)
+        if (Vector2.Distance(transform.position, targetToFollow.transform.position) == attackRange)
         {
-        transform.position = Vector2.MoveTowards(transform.position, targetToFollow.transform.position, enemySpeed * Time.deltaTime);
+           AttackPlayer();
         }
-           
-    }
+        else if (Vector2.Distance(transform.position, targetToFollow.transform.position) < enemyViewRange)//follow
+        {
+            transform.position = Vector2.MoveTowards(transform.position, targetToFollow.transform.position, enemySpeed * Time.deltaTime);
+        }
+        else
+        {
+             rb.linearVelocity = Vector2.zero;
+        }
+     }      
 }
