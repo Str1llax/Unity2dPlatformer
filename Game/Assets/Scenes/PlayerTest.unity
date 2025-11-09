@@ -1620,9 +1620,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   _animator: {fileID: 1933462761}
   enemyHealth: 10
-  enemySpeed: 3
-  enemyViewRange: 4
-  attackRange: 2
+  enemySpeed: 2
+  enemyViewRange: 3
+  attackRange: 1
   targetToFollow: {fileID: 812110872}
 --- !u!50 &1933462757
 Rigidbody2D:
