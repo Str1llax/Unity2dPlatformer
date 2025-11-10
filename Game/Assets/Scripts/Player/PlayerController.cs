@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Movement")]
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float jumpForce = 10f;
+    [Range(0, 10)] [SerializeField] private float moveSpeed;
+    [Range(0, 10)] [SerializeField] private float jumpForce;
     
     [Header("Components")]
     [SerializeField] private InputAction playerMovement;
@@ -80,14 +80,6 @@ public class PlayerController : MonoBehaviour
         var locScale = transform.localScale;
         locScale.x *= -1;
         transform.localScale = locScale;
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            
-        }
     }
 
     private bool isGrounded()
