@@ -23,6 +23,7 @@ public class FinishTrigger : MonoBehaviour
         }
         else
         {
+            SceneManager.LoadScene(0);
             Debug.Log("This was the last level!");
         }
     }
