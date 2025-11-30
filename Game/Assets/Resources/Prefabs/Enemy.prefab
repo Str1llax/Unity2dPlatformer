@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5748154908378012585}
   - component: {fileID: 4685659924238881207}
   - component: {fileID: 8741346676279331758}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -30,9 +30,9 @@ Transform:
   m_GameObject: {fileID: 458253280942781902}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.1319, y: -3.4545, z: 0}
-  m_LocalScale: {x: 0.6851, y: 0.7224, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -80,8 +80,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -73213521
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4fbb0140dc27844498448e6007e56ac3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -124,7 +124,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -138,7 +138,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.06, y: 2.05}
+  m_Size: {x: 2.965869, y: 1.8884735}
   m_EdgeRadius: 0
 --- !u!50 &5748154908378012585
 Rigidbody2D:
@@ -179,12 +179,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b3788bdadb6f04fbc610e4adac7e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
-  _animator: {fileID: 8741346676279331758}
-  enemyHealth: 10
-  enemySpeed: 2
-  enemyViewRange: 3
-  attackRange: 1
-  targetToFollow: {fileID: 0}
+  moveSpeed: 1
+  viewRange: 4
+  health: 2
+  attackDamage: 1
+  attackRange: 1.5
+  attackCooldown: 1
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  boxCollider: {fileID: 4797467542296885431}
+  viewColliderDistance: 0
+  attackColliderDistance: 0
 --- !u!95 &8741346676279331758
 Animator:
   serializedVersion: 7

@@ -116,12 +116,12 @@ TextureImporter:
       name: SlimeBasic_00000-5 2_0
       rect:
         serializedVersion: 2
-        x: 71
-        y: 47
-        width: 245
-        height: 148
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 33
+        y: 25
+        width: 390
+        height: 235
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4365025}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7b5e375cf278bf94cbe77760aad96069
     internalID: 0
     vertices: []
     indices: 
