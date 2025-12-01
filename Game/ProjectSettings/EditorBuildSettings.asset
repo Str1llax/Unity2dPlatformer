@@ -8,6 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Level.unity
+    guid: b3a55f59f5b528b4581139ce6148e601
+  - enabled: 1
+    path: Assets/Scenes/level 2.unity
+    guid: ec5d59d3c8cc7bb44a301a3194ffb2d9
+  - enabled: 1
+    path: Assets/Scenes/level 3.unity
+    guid: ee4185087a81feb459e983dae6a07034
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: dd9ef0f55d928034cacce2cffca8239b, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 3a8fc5c6e03fd2e41aaaa5316339fec3, type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: 400b450fd4c8d77438b1637f1bf71bb5, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
