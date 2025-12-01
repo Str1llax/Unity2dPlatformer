@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,22 +24,12 @@ public class PlayerController : MonoBehaviour
         _collider = GetComponent<BoxCollider2D>();
         _playerAnimator = GetComponent<Animator>();
     }
-
-    private void Start()
-    {
-        EnableMovement();
-    }
-
+    
     void Update()
     {
         Move();
     }
-
-    private void EnableMovement()
-    {
-        
-    }
-
+    
     private void Move()
     {
         var moveInput = move.action.ReadValue<Vector2>();

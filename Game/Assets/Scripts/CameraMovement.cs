@@ -13,7 +13,7 @@ public class CameraMovement : MonoBehaviour
     
     [Header("Keybinds")]
     [SerializeField] private InputActionReference cameraZoom;
-    
+
     private Camera _camera;
 
     private void Awake()
@@ -36,5 +36,11 @@ public class CameraMovement : MonoBehaviour
     private void Zoom(bool negative)
     {
         _camera.orthographicSize = negative ? Math.Max(_camera.orthographicSize-cameraZoomSpeed, 2.5f) : Math.Min(_camera.orthographicSize+cameraZoomSpeed, 5f);
+    }
+
+    public void SetCameraBorders(Vector2 xBorders, Vector2 yBorders)
+    {
+        xLimits = xBorders;
+        yLimits = yBorders;
     }
 }

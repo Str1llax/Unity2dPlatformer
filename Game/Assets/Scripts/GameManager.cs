@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public int coins = 0;           
     public TMP_Text coinText;
 
-    void Awake()
+    private void Awake()
     {
         Time.timeScale = 1f;
         if (Instance == null)

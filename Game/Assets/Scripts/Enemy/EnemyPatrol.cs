@@ -8,7 +8,7 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField] private Transform rightEdge;
     
     [Header("Enemy")]
-    [SerializeField] private Transform enemy;
+    [SerializeField] private GameObject enemy;
     
     [Header("Movement")]
     [Range(0, 10)] [SerializeField] private float speed;
@@ -17,17 +17,20 @@ public class EnemyPatrol : MonoBehaviour
     private Vector3 _initScale;
     private bool _movingLeft;
     private float _idleTimer;
+    private Rigidbody2D _rigidBody;
+    
 
     private void Awake()
     {
-        _initScale = enemy.localScale;
+        _initScale = enemy.transform.localScale;
+        _rigidBody = enemy.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
         if (_movingLeft)
         {
-            if (enemy.position.x >= leftEdge.position.x)
+            if (enemy.transform.position.x >= leftEdge.position.x)
             {
                 MoveInDirection(-1);
             }
@@ -38,7 +41,7 @@ public class EnemyPatrol : MonoBehaviour
         }
         else
         {
-            if (enemy.position.x <= rightEdge.position.x)
+            if (enemy.transform.position.x <= rightEdge.position.x)
             {
                 MoveInDirection(1);
             }
@@ -62,8 +65,9 @@ public class EnemyPatrol : MonoBehaviour
     private void MoveInDirection(int direction)
     {
         _idleTimer = 0;
-        enemy.localScale = new Vector3(Mathf.Abs(_initScale.x) * direction, _initScale.y, _initScale.z);
+        enemy.transform.localScale = new Vector3(Mathf.Abs(_initScale.x) * direction, _initScale.y, _initScale.z);
         
-        enemy.position = new Vector3(enemy.position.x + Time.deltaTime * direction * speed, enemy.position.y, enemy.position.z);
+        //enemy.transform.position = new Vector3(enemy.position.x + Time.deltaTime * direction * speed, enemy.position.y, enemy.position.z);
+        _rigidBody.linearVelocity = new Vector2(direction*speed, 0);
     }
 }
