@@ -1,18 +1,26 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class FinishTrigger : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D other)
+    private UIManager _uiManager;
+    private void Awake()
+    {
+        _uiManager = FindAnyObjectByType<UIManager>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             Debug.Log("Level completed!");
-            LoadNextLevel();
+            _uiManager.Win();
+            //LoadNextLevel();
         }
     }
 
-    void LoadNextLevel()
+    public void LoadNextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;

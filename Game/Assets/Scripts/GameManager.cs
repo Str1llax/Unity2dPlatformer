@@ -4,11 +4,12 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance; 
-    public int coins = 0;               
-    public TMP_Text coinText;           
+    public int coins = 0;           
+    public TMP_Text coinText;
 
     void Awake()
     {
+        Time.timeScale = 1f;
         if (Instance == null)
         {
             Instance = this;

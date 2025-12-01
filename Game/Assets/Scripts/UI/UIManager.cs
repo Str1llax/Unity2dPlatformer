@@ -12,11 +12,15 @@ public class UIManager : MonoBehaviour
     
     [Header("Pause")]
     [SerializeField] private GameObject pauseScreen;
+    
+    [Header("Level Complete")]
+    [SerializeField] private GameObject winScreen;
 
     private void Awake()
     {
         gameOverScreen.SetActive(false);
         pauseScreen.SetActive(false);
+        winScreen.SetActive(false);
     }
 
     private void Update()
@@ -35,7 +39,6 @@ public class UIManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1;
     }
 
     public void Quit()
@@ -59,6 +62,31 @@ public class UIManager : MonoBehaviour
         pauseScreen.SetActive(status);
         
         Time.timeScale = status ? 0 : 1;
+    }
+    #endregion
+    
+    #region Level Complete
+
+    public void Win()
+    {
+        winScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+    
+    public void NextLevel()
+    {
+        var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        var nextSceneIndex = currentSceneIndex + 1;
+        
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+            Debug.Log("This was the last level!");
+        }
     }
     #endregion
 }
