@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
 {
     [Header("Health")]
     [Range(1, 10)] [SerializeField] private int startingHealth;
+    [SerializeField] private bool godMode;
     
     [Header("iFrames")]
     [SerializeField] private float iFrameDuration;
@@ -25,6 +26,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (godMode) return;
         CurrentHealth = Math.Clamp(CurrentHealth - damage, 0, startingHealth);
         if (CurrentHealth > 0)
         {
