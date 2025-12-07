@@ -25,13 +25,13 @@ public class EnemyMovement : MonoBehaviour
     private Health _playerHealth;
     private EnemyPatrol _enemyPatrol;
 
-    public void Start()
+    private void Start()
     {
         _animator = GetComponent<Animator>();
         _enemyPatrol = GetComponentInParent<EnemyPatrol>();
         _playerHealth = GetComponent<Health>();
     }
-    public void Update()
+    private void Update()
     {
         _cooldownTimer +=  Time.deltaTime;
 
@@ -45,7 +45,7 @@ public class EnemyMovement : MonoBehaviour
             }
             else
             {
-                //ApproachPlayer();
+                //TODO ApproachPlayer();
             }
         }
         else
@@ -98,5 +98,10 @@ public class EnemyMovement : MonoBehaviour
         {
             _playerHealth.TakeDamage(attackDamage);
         }
+    }
+
+    private void PlayTransitionSound(AudioClip clip)
+    {
+        SoundManager.Instance.PlaySound(clip);
     }
 }

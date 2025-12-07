@@ -1173,6 +1173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01dc258bf8405452693e65c148c532c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuUI
+  clickSound: {fileID: 8300000, guid: 5cf86b6690165a54eb4bab32d1883c23, type: 3}
   mainMenuScreen: {fileID: 1555714584}
   settingsScreen: {fileID: 298265066}
 --- !u!1 &916265372

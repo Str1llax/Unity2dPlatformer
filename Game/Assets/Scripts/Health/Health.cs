@@ -12,6 +12,10 @@ public class Health : MonoBehaviour
     [SerializeField] private float iFrameDuration;
     [SerializeField] private int numberOfFlashes;
     
+    [Header("Audio")]
+    [SerializeField] private AudioClip hitSound;
+    [SerializeField] private AudioClip deathSound;
+    
     public float CurrentHealth { get; private set; }
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
@@ -30,12 +34,14 @@ public class Health : MonoBehaviour
         CurrentHealth = Math.Clamp(CurrentHealth - damage, 0, startingHealth);
         if (CurrentHealth > 0)
         {
+            SoundManager.Instance.PlaySound(hitSound);
             _animator.SetTrigger("hit");
             StartCoroutine(Invulnerability());
         }
         else
         {
             if (_isDead) return;
+            SoundManager.Instance.PlaySound(deathSound);
             _animator.SetTrigger("die");
             GetComponent<PlayerController>().enabled = false;
             _isDead = true;

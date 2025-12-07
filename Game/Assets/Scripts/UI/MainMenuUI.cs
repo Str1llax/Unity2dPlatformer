@@ -1,9 +1,11 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
+    [Header("Components")]
+    [SerializeField] private AudioClip clickSound;
+    
     [Header("Main Menu")]
     [SerializeField] private GameObject mainMenuScreen;
     
@@ -18,17 +20,20 @@ public class MainMenuUI : MonoBehaviour
     #region Main Menu
     public void Settings()
     {
+        SoundManager.Instance.PlaySound(clickSound);
         mainMenuScreen.SetActive(false);
         settingsScreen.SetActive(true);
     }
     
     public void StartGame()
     {
+        SoundManager.Instance.PlaySound(clickSound);
         SceneManager.LoadScene(1);
     }
     
     public void Quit()
     {
+        SoundManager.Instance.PlaySound(clickSound);
         Application.Quit();
         
         #if UNITY_EDITOR
@@ -50,6 +55,7 @@ public class MainMenuUI : MonoBehaviour
     
     public void GoBack()
     {
+        SoundManager.Instance.PlaySound(clickSound);
         settingsScreen.SetActive(false);
         mainMenuScreen.SetActive(true);
     }

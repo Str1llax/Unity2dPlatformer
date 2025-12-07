@@ -90,4 +90,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: PlayTransitionSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 458cfd8deb1c88e4997d0936d1b23648, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

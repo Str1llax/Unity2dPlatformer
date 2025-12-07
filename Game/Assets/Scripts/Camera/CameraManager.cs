@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
@@ -9,6 +8,7 @@ public class CameraManager : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if(!other.CompareTag("Player")) return;
         if (Camera.main != null) Camera.main.GetComponent<CameraMovement>().SetCameraBorders(xLimits, yLimits);
     }
 }
