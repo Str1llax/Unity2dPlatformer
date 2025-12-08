@@ -150,3 +150,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86f6fd2b0ea0443db4571ff467361a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FinishTrigger
+  finishSound: {fileID: 8300000, guid: fd3081a12ccfcc94fa1f773154a8d6c2, type: 3}

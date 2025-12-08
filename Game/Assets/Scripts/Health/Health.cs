@@ -6,10 +6,15 @@ public class Health : MonoBehaviour
 {
     [Header("Health")]
     [Range(1, 10)] [SerializeField] private int startingHealth;
+    [SerializeField] private bool godMode;
     
     [Header("iFrames")]
     [SerializeField] private float iFrameDuration;
     [SerializeField] private int numberOfFlashes;
+    
+    [Header("Audio")]
+    [SerializeField] private AudioClip hitSound;
+    [SerializeField] private AudioClip deathSound;
     
     public float CurrentHealth { get; private set; }
     private Animator _animator;
@@ -25,15 +30,18 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (godMode) return;
         CurrentHealth = Math.Clamp(CurrentHealth - damage, 0, startingHealth);
         if (CurrentHealth > 0)
         {
+            SoundManager.Instance.GetComponentInChildren<SFXManager>().PlaySound(hitSound);
             _animator.SetTrigger("hit");
             StartCoroutine(Invulnerability());
         }
         else
         {
             if (_isDead) return;
+            SoundManager.Instance.GetComponentInChildren<SFXManager>().PlaySound(deathSound);
             _animator.SetTrigger("die");
             GetComponent<PlayerController>().enabled = false;
             _isDead = true;

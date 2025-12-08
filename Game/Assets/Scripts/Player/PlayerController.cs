@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputActionReference jump;
     [SerializeField] private LayerMask groundLayer;
     
+    [Header("Audio")]
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip walkSound;
+    
     private Rigidbody2D _rigidBody;
     private BoxCollider2D _collider;
     private Animator _playerAnimator;
@@ -57,6 +61,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
+        SoundManager.Instance.GetComponentInChildren<SFXManager>().PlaySound(jumpSound);
         _rigidBody.linearVelocity = new Vector2(_rigidBody.linearVelocityX, jumpForce);
         _playerAnimator.SetTrigger("jump");
     }
@@ -74,5 +79,9 @@ public class PlayerController : MonoBehaviour
     {
         var hitGround = Physics2D.BoxCast(_collider.bounds.center, _collider.bounds.size, 0f, Vector2.down, 0.05f, groundLayer);
         return hitGround.collider is not null;
+    }
+
+    private void PlayWalkSound()
+    {
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1835765949882951405}
   - component: {fileID: 6032755818946554976}
-  - component: {fileID: 166298193937887609}
+  - component: {fileID: 7631355185454853802}
   - component: {fileID: 2225169659743371860}
   m_Layer: 0
   m_Name: Coin
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.60499, y: -2.57, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -976110965
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -7909743977867431446, guid: e725fe8ccb2344bc684a238921100991, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -92,8 +92,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &166298193937887609
-CircleCollider2D:
+--- !u!61 &7631355185454853802
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -127,7 +127,17 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.12050222, y: 0.16}
+  m_EdgeRadius: 0
 --- !u!114 &2225169659743371860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,5 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdbebd34bf637448e80d42474c725205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoinCollect
+  value: 1
   rotationSpeed: 100
-  pickupDistance: 0.5
+  coinPickup: {fileID: 8300000, guid: f55e12d35f02c52449ead9c888660827, type: 3}

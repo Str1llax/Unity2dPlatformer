@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private InputActionReference pauseButton;
+    [SerializeField] private AudioClip clickSound;
     
     [Header("Game Over")]
     [SerializeField] private GameObject gameOverScreen;
@@ -32,17 +33,20 @@ public class UIManager : MonoBehaviour
     #region Game Over
     public void GameOver()
     {
+        SoundManager.Instance.GetComponentInChildren<SFXManager>().PlaySound(clickSound);
         gameOverScreen.SetActive(true);
         Time.timeScale = 0;
     }
 
     public void Restart()
     {
+        SoundManager.Instance.GetComponentInChildren<SFXManager>().PlaySound(clickSound);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Quit()
     {
+        SoundManager.Instance.GetComponentInChildren<SFXManager>().PlaySound(clickSound);
         Application.Quit();
         
         #if UNITY_EDITOR
@@ -52,6 +56,7 @@ public class UIManager : MonoBehaviour
 
     public void MainMenu()
     {
+        SoundManager.Instance.GetComponentInChildren<SFXManager>().PlaySound(clickSound);
         SceneManager.LoadScene(0);
     }
     #endregion
@@ -59,6 +64,7 @@ public class UIManager : MonoBehaviour
     #region Pause
     public void PauseGame(bool status)
     {
+        SoundManager.Instance.GetComponentInChildren<SFXManager>().PlaySound(clickSound);
         pauseScreen.SetActive(status);
         
         Time.timeScale = status ? 0 : 1;
@@ -75,6 +81,7 @@ public class UIManager : MonoBehaviour
     
     public void NextLevel()
     {
+        SoundManager.Instance.GetComponentInChildren<SFXManager>().PlaySound(clickSound);
         var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         var nextSceneIndex = currentSceneIndex + 1;
         
