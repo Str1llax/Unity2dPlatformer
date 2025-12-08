@@ -14,7 +14,7 @@ public class FinishTrigger : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
         Debug.Log("Level completed!");
-        SoundManager.Instance.PlaySound(finishSound);
+        SoundManager.Instance.GetComponentInChildren<SFXManager>().PlaySound(finishSound);
         _uiManager.Win();
     }
 }

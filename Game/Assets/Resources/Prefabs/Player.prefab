@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7509322549806041621}
   - component: {fileID: 3654391875688453984}
   - component: {fileID: 2841143046692635678}
+  - component: {fileID: 4923451885413155129}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -254,8 +255,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   startingHealth: 3
+  godMode: 0
   iFrameDuration: 1
   numberOfFlashes: 3
+  hitSound: {fileID: 8300000, guid: 02eb12e200c5bf84e963df8a62b67121, type: 3}
+  deathSound: {fileID: 8300000, guid: 5ba73c83d24b4c74290a9f46972e4aec, type: 3}
 --- !u!114 &2841143046692635678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,3 +275,17 @@ MonoBehaviour:
   checkpointSound: {fileID: 0}
   respawnPoint: {fileID: 0}
   livesCount: 1
+--- !u!114 &4923451885413155129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7541318765671693161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 498e1df43d0ee3f4592b1ddc0ec174bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoinManager
+  coinText: {fileID: 0}
+  gameManager: {fileID: 0}

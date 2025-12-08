@@ -9,7 +9,7 @@ public class Coin : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player")) return;
-        SoundManager.Instance.PlaySound(coinPickup);
+        SoundManager.Instance.GetComponentInChildren<SFXManager>().PlaySound(coinPickup);
         collision.GetComponent<CoinManager>().AddCoin(value);
         Destroy(gameObject);
     }

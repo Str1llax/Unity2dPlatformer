@@ -34,14 +34,14 @@ public class Health : MonoBehaviour
         CurrentHealth = Math.Clamp(CurrentHealth - damage, 0, startingHealth);
         if (CurrentHealth > 0)
         {
-            SoundManager.Instance.PlaySound(hitSound);
+            SoundManager.Instance.GetComponentInChildren<SFXManager>().PlaySound(hitSound);
             _animator.SetTrigger("hit");
             StartCoroutine(Invulnerability());
         }
         else
         {
             if (_isDead) return;
-            SoundManager.Instance.PlaySound(deathSound);
+            SoundManager.Instance.GetComponentInChildren<SFXManager>().PlaySound(deathSound);
             _animator.SetTrigger("die");
             GetComponent<PlayerController>().enabled = false;
             _isDead = true;

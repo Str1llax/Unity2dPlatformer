@@ -1,13 +1,11 @@
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+public class SFXManager : MonoBehaviour
 {
-    public static SoundManager Instance { get; private set; }
     private AudioSource _audioSource;
-    
+
     private void Awake()
     {
-        Instance = this;
         _audioSource = GetComponent<AudioSource>();
     }
 

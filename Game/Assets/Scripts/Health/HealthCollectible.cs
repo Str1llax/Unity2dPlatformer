@@ -9,7 +9,7 @@ public class HealthCollectible : MonoBehaviour
     {
         if (!collision.CompareTag("Player")) return;
         if (collision.GetComponent<Health>().IsAtMaxHealth()) return;
-        SoundManager.Instance.PlaySound(pickupSound);
+        SoundManager.Instance.GetComponentInChildren<SFXManager>().PlaySound(pickupSound);
         collision.GetComponent<Health>().AddHealth(healthValue);
         gameObject.SetActive(false);
     }

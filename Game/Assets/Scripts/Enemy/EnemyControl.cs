@@ -102,6 +102,6 @@ public class EnemyMovement : MonoBehaviour
 
     private void PlayTransitionSound(AudioClip clip)
     {
-        SoundManager.Instance.PlaySound(clip);
+        SoundManager.Instance.GetComponentInChildren<SFXManager>().PlaySound(clip);
     }
 }
